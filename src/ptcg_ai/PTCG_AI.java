@@ -28,6 +28,8 @@ public class PTCG_AI {
 			System.out.println("6. The deck configuration path of the second participant.");
 			return;
 		}
+
+		printSplash();
 		
 		// Create the match.
 		Match match = new Match(createParticipant(args[0], args[1], args[2]), 
@@ -46,7 +48,21 @@ public class PTCG_AI {
 		System.out.println();
 		System.out.println("The winner is: " + match.getWinningParticipant().getName());
 	}
-	
+
+	/**
+	 * Print a splash to the console.
+	 */
+	private static void printSplash() {
+		System.out.println("  __________ ____________________    ________             _____    ___ ");
+		System.out.println("  \\______   \\\\__    ___/\\_   ___ \\  /  _____/            /  _  \\  |   |");
+		System.out.println("   |     ___/  |    |   /    \\  \\/ /   \\  ___   ______  /  /_\\  \\ |   |");
+		System.out.println("   |    |      |    |   \\     \\____\\    \\_\\  \\ /_____/ /    |    \\|   |");
+		System.out.println("   |____|      |____|    \\______  / \\______  /         \\____|__  /|___|");
+		System.out.println("                                \\/         \\/                  \\/      ");
+		System.out.println();
+		System.out.println("version 0.0.1");
+	}
+
 	/**
 	 * Create either a player or AI based participant.
 	 * @param name The participant name.
