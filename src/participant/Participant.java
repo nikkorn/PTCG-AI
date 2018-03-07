@@ -8,6 +8,10 @@ import pokemon.Pokemon;
  */
 public abstract class Participant {
 	/**
+	 * The name of the participant.
+	 */
+	private String name;
+	/**
 	 * The deck configuration path for this participant.
 	 */
 	private String deckConfigurationPath;
@@ -18,9 +22,10 @@ public abstract class Participant {
 	
 	/**
 	 * Creates a new instance of the Participant class.
+	 * @param name The name of the participant.
 	 * @param deckConfigurationPath The path to the participants deck configuration.
 	 */
-	public Participant(String deckConfigurationPath) {
+	public Participant(String name, String deckConfigurationPath) {
 		this.deckConfigurationPath = deckConfigurationPath;
 	}
 	
@@ -30,6 +35,14 @@ public abstract class Participant {
 	 */
 	public String getDeckConfigurationPath() {
 		return this.deckConfigurationPath;
+	}
+	
+	/**
+	 * Gets the name of the participant.
+	 * @return The name of the participant.
+	 */
+	public String getName() {
+		return this.name;
 	}
 	
 	/**

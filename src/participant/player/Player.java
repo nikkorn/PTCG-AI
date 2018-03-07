@@ -10,10 +10,11 @@ public class Player extends Participant {
 
 	/**
 	 * Creates a new instance of the Player class.
+	 * @param name The name of the participant.
 	 * @param deckConfigurationPath The path to the participants deck configuration.
 	 */
-	public Player(String deckConfigurationPath) {
-		super(deckConfigurationPath);
+	public Player(String name, String deckConfigurationPath) {
+		super(name, deckConfigurationPath);
 	}
 
 	/**

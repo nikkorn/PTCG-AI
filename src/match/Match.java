@@ -41,32 +41,26 @@ public class Match {
 		// TODO Check for basic pokemon in both hands.
 		// TODO Set participant prizes.
 		// TODO Ask participants to pick active pokemon.
+		
+		// Choose the initial participant to play.
+		this.chooseFirstParticipant();
 	}
 	
 	/**
 	 * Process a single turn for the active participant.
 	 */
 	public void processTurn() {
-		// Have we not picked our initial participant?
-		if (this.activeParticipant == null) {
-			this.chooseFirstParticipant();
-		}
-		// A match consists on the two participants taking turns until we have a winner.
-		while (getWinningParticipant() == null) {
-			// Carry out the pre-turn stage.
-			this.activeParticipant.onPreTurn();
-			// Carry out the actual turn stage.
-			this.activeParticipant.onTurn(new TurnContext(this.activeParticipant));
-			// Carry out the post-turn stage.
-			this.activeParticipant.onPostTurn();
-			// Swap the active participant.
-			this.swapActiveParticipant();
-		}
-		// We have a winner!
-		System.out.println("We have a winner!!!!");
+		// Carry out the pre-turn stage.
+		this.activeParticipant.onPreTurn();
+		// Carry out the actual turn stage.
+		this.activeParticipant.onTurn(new TurnContext(this.activeParticipant));
+		// Carry out the post-turn stage.
+		this.activeParticipant.onPostTurn();
+		// Swap the active participant.
+		this.swapActiveParticipant();
 	}
 	
-	private Participant getWinningParticipant() {
+	public Participant getWinningParticipant() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -10,10 +10,11 @@ public class AI extends Participant {
 
 	/**
 	 * Creates a new instance of the AI class.
+	 * @param name The name of the participant.
 	 * @param deckConfigurationPath The path to the participants deck configuration.
 	 */
-	public AI(String deckConfigurationPath) {
-		super(deckConfigurationPath);
+	public AI(String name, String deckConfigurationPath) {
+		super(name, deckConfigurationPath);
 	}
 
 	/**
