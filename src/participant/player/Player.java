@@ -23,6 +23,9 @@ public class Player extends Participant {
 	 */
 	@Override
 	public void onTurn(TurnContext context) {
-		// TODO Auto-generated method stub
+		// Create an input handler for the player to use to input commands.
+		InputHandler inputHandler = new InputHandler();
+		// Start getting processing input commands.
+		inputHandler.startInputLoop(context);
 	}
 }

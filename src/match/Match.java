@@ -50,6 +50,9 @@ public class Match {
 	 * Process a single turn for the active participant.
 	 */
 	public void processTurn() {
+		// Write to the console whos turn it is.
+		System.out.println();
+		System.out.println(this.activeParticipant.getName() + "'s Turn!");
 		// Carry out the pre-turn stage.
 		this.activeParticipant.onPreTurn();
 		// Carry out the actual turn stage.
@@ -75,6 +78,9 @@ public class Match {
 		this.activeParticipant = coin.flip() == Coin.FlipResult.HEADS ? 
 				this.participantA : 
 				this.participantB;
+		// Write the news of the winner to the console.
+		System.out.println();
+		System.out.println(this.activeParticipant.getName() + " wins the coin toss and is going first!");
 	}
 	
 	/**

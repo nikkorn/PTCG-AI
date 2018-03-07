@@ -26,6 +26,7 @@ public abstract class Participant {
 	 * @param deckConfigurationPath The path to the participants deck configuration.
 	 */
 	public Participant(String name, String deckConfigurationPath) {
+		this.name                  = name;
 		this.deckConfigurationPath = deckConfigurationPath;
 	}
 	

@@ -43,17 +43,18 @@ public class PTCG_AI {
 		}
 		
 		 // We have a winner!
+		System.out.println();
 		System.out.println("The winner is: " + match.getWinningParticipant().getName());
 	}
 	
 	/**
 	 * Create either a player or AI based participant.
 	 * @param name The participant name.
-	 * @param deckConfigurationPath The participant deck configuration path.
 	 * @param type The participant type (player/computer)
+	 * @param deckConfigurationPath The participant deck configuration path.
 	 * @return The participant.
 	 */
-	private static Participant createParticipant(String name, String deckConfigurationPath, String type) {
+	private static Participant createParticipant(String name, String type, String deckConfigurationPath) {
 		// The type of participant we create depends on
 		if (type.toLowerCase().equals("player")) {
 			return new Player(name, deckConfigurationPath);
