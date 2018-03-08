@@ -1,6 +1,8 @@
 package ptcg_ai;
 
 import java.util.Random;
+import card.CardLibrary;
+import energy.Energy;
 import match.Match;
 import participant.Participant;
 import participant.ai.AI;
@@ -29,7 +31,11 @@ public class PTCG_AI {
 			return;
 		}
 
+		// Print a pretty splash to the console.
 		printSplash();
+		
+		// Load the card library from disk.
+		CardLibrary.loadFromDisk();
 		
 		// Create the match.
 		Match match = new Match(createParticipant(args[0], args[1], args[2]), 
