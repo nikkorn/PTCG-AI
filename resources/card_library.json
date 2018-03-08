@@ -1,0 +1,42 @@
+[
+    {
+        "name": "GRASS",
+        "type": "ENERGY"
+    },
+    {
+        "name": "FIRE",
+        "type": "ENERGY"
+    },
+    {
+        "name": "WATER",
+        "type": "ENERGY"
+    },
+    {
+        "name": "LIGHTNING",
+        "type": "ENERGY"
+    },
+    {
+        "name": "PSYCHIC",
+        "type": "ENERGY"
+    },
+    {
+        "name": "DOUBLE_COLOURLESS",
+        "type": "ENERGY"
+    },
+
+
+    {
+        "name": "staryu",
+        "type": "POKEMON",
+        "hp": 4,
+        "moves": [
+            {
+                "name": "Slap",
+                "cost": ["WATER"],
+                "actions": [
+                    { "type": "APPLY_DAMAGE", "damage": 2 }
+                ]
+            }
+        ]
+    }
+]
