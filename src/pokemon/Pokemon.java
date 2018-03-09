@@ -5,6 +5,7 @@ import card.CardType;
 import card.ICard;
 import energy.Energy;
 import energy.EnergyCost;
+import energy.EnergyType;
 import moves.Move;
 
 /**
@@ -16,9 +17,13 @@ public class Pokemon implements ICard {
 	 */
 	private String name;
 	/**
-	 * The name of the evolved type of this pokemon. 
+	 * The energy type of this pokemon.
 	 */
-	private String evolution;
+	private EnergyType type;
+	/**
+	 * The name of the pre-evolution of this pokemon. 
+	 */
+	private String preEvolution;
 	/**
 	 * The list of moves this pokemon can perform.
 	 */
@@ -55,20 +60,22 @@ public class Pokemon implements ICard {
 	/**
 	 * Creates a new instance of the Pokemon class.
 	 * @param name The name of the pokemon.
-	 * @param evolution The name of the evolved type of this pokemon. 
+	 * @param type The type of the pokemon.
+	 * @param preEvolution The name of the pre-evolution of this pokemon. 
 	 * @param moves The list of moves this pokemon can perform.
 	 * @param resistance The resistance of the pokemon.
 	 * @param weakness The weakness of the pokemon.
 	 * @param hp The overall HP of the pokemon.
 	 */
-	public Pokemon(String name, String evolution, ArrayList<Move> moves,
+	public Pokemon(String name, EnergyType type, String preEvolution, ArrayList<Move> moves,
 			Resistance resistance, Weakness weakness, int hp) {
-		this.name       = name;
-		this.evolution  = evolution;
-		this.moves      = moves;
-		this.resistance = resistance;
-		this.weakness   = weakness;
-		this.hp         = hp;
+		this.name         = name;
+		this.type         = type;
+		this.preEvolution = preEvolution;
+		this.moves        = moves;
+		this.resistance   = resistance;
+		this.weakness     = weakness;
+		this.hp           = hp;
 	}
 	
 	/**
@@ -80,11 +87,19 @@ public class Pokemon implements ICard {
 	}
 	
 	/**
-	 * Gets the evolution of the pokemon.
-	 * @return The evolution of the pokemon.
+	 * Get the energy type of this pokemon.
+	 * @return The energy type of this pokemon.
 	 */
-	public String getEvolution() {
-		return this.evolution;
+	public EnergyType getEnergyType() {
+		return this.type;
+	}
+	
+	/**
+	 * Gets the pre-evolution of the pokemon.
+	 * @return The pre-evolution of the pokemon.
+	 */
+	public String getPreEvolution() {
+		return this.preEvolution;
 	}
 	
 	/**

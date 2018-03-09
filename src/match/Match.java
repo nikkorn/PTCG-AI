@@ -2,6 +2,7 @@ package match;
 
 import java.util.Random;
 import participant.Participant;
+import ptcg_ai.GamePrinter;
 
 /**
  * Represents a single match.
@@ -74,10 +75,15 @@ public class Match {
 	 * Choose the initial participant based on a coin flip.
 	 */
 	private void chooseFirstParticipant() {
+		System.out.println("Flipping a coin to see who goes first! Heads: " + this.participantA.getName() + " Tails: " + this.participantB.getName());
 		// Get a coin to use to find our initial player.
 		Coin coin = new Coin(this.rng);
+		// Get the result of flipping the coin.
+		Coin.FlipResult result = coin.flip();
+		// Print the coin flip to the console.
+		GamePrinter.printCoinFlip(result);
 		// If we get heads then participantA will be our first player.
-		this.activeParticipant = coin.flip() == Coin.FlipResult.HEADS ? 
+		this.activeParticipant = result == Coin.FlipResult.HEADS ? 
 				this.participantA : 
 				this.participantB;
 		// Write the news of the winner to the console.

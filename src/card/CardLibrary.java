@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import energy.EnergyFactory;
+import pokemon.PokemonFactory;
 import ptcg_ai.Constants;
 import ptcg_ai.Utilities;
 
@@ -82,9 +83,9 @@ public class CardLibrary {
 				case ENERGY:
 					return EnergyFactory.create(cardJSON);
 				case POKEMON:
-					return null; // TODO!
+					return PokemonFactory.create(cardJSON);
 				case TRAINER:
-					return null; // TODO!
+					return null; // TODO Create the TrainerFactory!
 				default:
 					throw new RuntimeException("Unexpected card type '" + cardType + "'!"); 
 			}

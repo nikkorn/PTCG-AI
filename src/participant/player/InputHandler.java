@@ -1,6 +1,7 @@
 package participant.player;
 
 import match.TurnContext;
+import ptcg_ai.GamePrinter;
 import java.util.Scanner;
 
 /**
@@ -15,8 +16,8 @@ public class InputHandler {
     public void startInputLoop(TurnContext context) {
         // Create a scanner to read player input.
         Scanner inputScanner = new Scanner(System.in);
-        // Print an input que.
-        System.out.print("> ");
+        // Print the input cursor.
+        GamePrinter.printInputCursor();
         // Get the first line of input.
         String input = inputScanner.nextLine();
         // Read input until the player ends their turn.
@@ -33,8 +34,8 @@ public class InputHandler {
             } else {
                 this.processCommand(command);
             }
-            // Print an input que.
-            System.out.print("> ");
+            // Print the input cursor.
+            GamePrinter.printInputCursor();
             // Get the next line of input.
             input = inputScanner.nextLine();
         }
@@ -73,31 +74,11 @@ public class InputHandler {
             case POKEPOWER:
                 break;
             case HELP:
-                printHelp();
+            	// Print help information to the console.
+                GamePrinter.printHelp();
                 break;
             default:
                 onEmptyInput();
         }
-    }
-
-    /**
-     * Print help information to the console.
-     */
-    private void printHelp() {
-        System.out.println("################################# HELP ##################################");
-        System.out.println("#########################################################################");
-        System.out.println("# CHECK [hand|1-6]      Checks the specified target. Either the hand    #");
-        System.out.println("#                       of the player or a pokemon index (1=active,     #");
-        System.out.println("#                       2-6=benched).                                   #");
-        System.out.println("# PLAY index            Plays the card with the specified hand index.   #");
-        System.out.println("# RETREAT index         Retreat the active pokemon, paying the retreat  #");
-        System.out.println("#                       cost for the active pokemon and swapping it     #");
-        System.out.println("#                       for the pokemon at the specified bench index.   #");
-        System.out.println("# ATTACK move           Attacks with the specified move.                #");
-        System.out.println("# POKEPOWER 1-6         Triggers a pokepower for pokemon at the         #");
-        System.out.println("#                       specified index (1=active, 2-6=benched).        #");
-        System.out.println("# END TURN              End the turn.                                   #");
-        System.out.println("#########################################################################");
-        System.out.println();
     }
 }

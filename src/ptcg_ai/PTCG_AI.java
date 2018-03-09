@@ -2,7 +2,6 @@ package ptcg_ai;
 
 import java.util.Random;
 import card.CardLibrary;
-import energy.Energy;
 import match.Match;
 import participant.Participant;
 import participant.ai.AI;

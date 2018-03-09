@@ -26,12 +26,16 @@
 
 
     {
-        "name": "staryu",
+        "name": "Staryu",
         "type": "POKEMON",
+        "energyType": "water",
         "hp": 4,
+        "evolvesFrom": null,
+        "power": null,
         "moves": [
             {
                 "name": "Slap",
+                "description": "",
                 "cost": ["WATER"],
                 "actions": [
                     { "type": "APPLY_DAMAGE", "damage": 2 }
