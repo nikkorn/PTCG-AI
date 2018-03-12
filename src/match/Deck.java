@@ -12,6 +12,26 @@ public class Deck extends ArrayList<ICard> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * The name of the deck.
+	 */
+	private String name;
+	
+	/**
+	 * Creates a new instance of the Deck class.
+	 * @param name The name of the deck.
+	 */
+	public Deck(String name) {
+		this.name = name;
+	}
+	
+	/**
+	 * Gets the name of the deck.
+	 * @return The name of the deck.
+	 */
+	public String getName() {
+		return this.name;
+	}
 	
 	/**
 	 * Shuffle the deck.

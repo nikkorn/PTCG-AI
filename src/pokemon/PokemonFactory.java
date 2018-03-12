@@ -27,7 +27,7 @@ public class PokemonFactory {
 		
 		// Create the pokemon weakness/resistance objects and the move set.
 		Resistance resistance = createResistance(cardJSON.getJSONObject("resistance"));
-		Weakness weakness     = createWeakness(cardJSON.getJSONObject("resistance"));
+		Weakness weakness     = createWeakness(cardJSON.getJSONObject("weakness"));
 		ArrayList<Move> moves = createMoveSet(cardJSON.getJSONArray("moves"));
 
 		// Create and return the pokemon card!

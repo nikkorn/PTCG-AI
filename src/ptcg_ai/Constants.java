@@ -8,6 +8,15 @@ public class Constants {
 	/** The path of the card library JSON file. */
 	public static String CARD_LIBRARY_PATH = "./resources/card_library.json";
 	
+	/** The directory of card configuration files. */
+	public static String DECK_CONFIG_DIR = "./decks/";
+	
+	/** The number of cards that a deck is made up of. */
+	public static int DECK_REQUIRED_SIZE = 60;
+	
+	/** The number of duplicate cards allowed in a deck. */
+	public static int DECK_DUPLICATES_ALLOWED = 4;
+	
 	/** The sleep in millis between coin flip animations. */
 	public static long COIN_FLIP_ANIMATION_SLEEP = 200;
 

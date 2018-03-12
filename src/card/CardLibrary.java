@@ -32,7 +32,7 @@ public class CardLibrary {
 		CardLibrary.libraryJSONFile = new File(Constants.CARD_LIBRARY_PATH);
 		// Check that the file actually exists.
 		if (!CardLibrary.libraryJSONFile.exists()) {
-			throw new RuntimeException("Cannot file card library file at: " + CardLibrary.libraryJSONFile.getAbsolutePath());
+			throw new RuntimeException("Cannot find card library file at: " + CardLibrary.libraryJSONFile.getAbsolutePath());
 		}
 		// The card library file contains a JSON array of cards.
 		JSONArray cardArray = Utilities.readJSONArrayFromFile(CardLibrary.libraryJSONFile);
@@ -90,7 +90,7 @@ public class CardLibrary {
 					throw new RuntimeException("Unexpected card type '" + cardType + "'!"); 
 			}
 		} catch (JSONException e) {
-			throw new RuntimeException("Error getting type of card'" + name + "'!");
+			throw new RuntimeException("Error creating card '" + name + "'!");
 		}
 	}
 }

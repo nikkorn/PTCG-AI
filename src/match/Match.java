@@ -39,9 +39,13 @@ public class Match {
 	public void setupMatch() {
 		System.out.println("Participants: " + participantA.getName() + " and " + participantB.getName());
 		System.out.println("Setting up match...");
-		// TODO Shuffle participant decks.
+		// Shuffle participant decks.
+		System.out.println("Shuffling the decks...");
+		participantA.getDeck().shuffle();
+		participantB.getDeck().shuffle();
+		
+		// TODO Check for basic pokemon in top cards of both decks.
 		// TODO Set participant hands.
-		// TODO Check for basic pokemon in both hands.
 		// TODO Set participant prizes.
 		// TODO Ask participants to pick active pokemon.
 		

@@ -2,6 +2,7 @@ package ptcg_ai;
 
 import java.util.Random;
 import card.CardLibrary;
+import match.DeckBuilder;
 import match.Match;
 import participant.Participant;
 import participant.ai.AI;
@@ -23,10 +24,10 @@ public class PTCG_AI {
 			System.out.println("Expected 6 arguments:");
 			System.out.println("1. The name of the first participant.");
 			System.out.println("2. The type of the first participant (computer/player)");
-			System.out.println("3. The deck configuration path of the first participant.");
+			System.out.println("3. The name of the deck that the first participant will use.");
 			System.out.println("4. The name of the second participant.");
 			System.out.println("5. The type of the second participant (computer/player)");
-			System.out.println("6. The deck configuration path of the second participant.");
+			System.out.println("6. The name of the deck that the second participant will use.");
 			return;
 		}
 
@@ -36,9 +37,16 @@ public class PTCG_AI {
 		// Load the card library from disk.
 		CardLibrary.loadFromDisk();
 		
+		// Create the participants.
+		Participant firstParticipant  = createParticipant(args[0], args[1]);
+		Participant secondParticipant = createParticipant(args[3], args[4]);
+		
+		// Build the decks of the two participants.
+		firstParticipant.setDeck(DeckBuilder.createDeck(args[2]));
+		secondParticipant.setDeck(DeckBuilder.createDeck(args[5]));
+		
 		// Create the match.
-		Match match = new Match(createParticipant(args[0], args[1], args[2]), 
-				createParticipant(args[3], args[4], args[5]), new Random());
+		Match match = new Match(firstParticipant, secondParticipant, new Random());
 		
 		// Set up the match.
 		match.setupMatch();
@@ -72,15 +80,14 @@ public class PTCG_AI {
 	 * Create either a player or AI based participant.
 	 * @param name The participant name.
 	 * @param type The participant type (player/computer)
-	 * @param deckConfigurationPath The participant deck configuration path.
 	 * @return The participant.
 	 */
-	private static Participant createParticipant(String name, String type, String deckConfigurationPath) {
+	private static Participant createParticipant(String name, String type) {
 		// The type of participant we create depends on
 		if (type.toLowerCase().equals("player")) {
-			return new Player(name, deckConfigurationPath);
+			return new Player(name);
 		} else if (type.toLowerCase().equals("computer")) {
-			return new AI(name, deckConfigurationPath);
+			return new AI(name);
 		} else {
 			throw new RuntimeException("Expected participant type of 'player' or 'computer'. Got: " + type);
 		}

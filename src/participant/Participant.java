@@ -1,6 +1,7 @@
 package participant;
 
 import match.TurnContext;
+import match.Deck;
 import pokemon.Pokemon;
 
 /**
@@ -12,30 +13,20 @@ public abstract class Participant {
 	 */
 	private String name;
 	/**
-	 * The deck configuration path for this participant.
-	 */
-	private String deckConfigurationPath;
-	/**
 	 * The participants active pokemon.
 	 */
 	private Pokemon activePokemon = null;
+	/**
+	 * The participants deck.
+	 */
+	private Deck deck = null;
 	
 	/**
 	 * Creates a new instance of the Participant class.
 	 * @param name The name of the participant.
-	 * @param deckConfigurationPath The path to the participants deck configuration.
 	 */
-	public Participant(String name, String deckConfigurationPath) {
-		this.name                  = name;
-		this.deckConfigurationPath = deckConfigurationPath;
-	}
-	
-	/**
-	 * Gets the deck configuration path for this participant.
-	 * @return The deck configuration path for this participant.
-	 */
-	public String getDeckConfigurationPath() {
-		return this.deckConfigurationPath;
+	public Participant(String name) {
+		this.name = name;
 	}
 	
 	/**
@@ -44,6 +35,38 @@ public abstract class Participant {
 	 */
 	public String getName() {
 		return this.name;
+	}
+	
+	/**
+	 * Get the participants deck.
+	 * @return The participants deck.
+	 */
+	public Deck getDeck() {
+		return deck;
+	}
+
+	/**
+	 * Set the participants deck.
+	 * @param deck The participants deck.
+	 */
+	public void setDeck(Deck deck) {
+		this.deck = deck;
+	}
+	
+	/**
+	 * Gets the active pokemon.
+	 * @return The active pokemon.
+	 */
+	public Pokemon getActivePokemon() {
+		return activePokemon;
+	}
+
+	/**
+	 * Sets the active pokemon.
+	 * @param activePokemon The active pokemon.
+	 */
+	public void setActivePokemon(Pokemon activePokemon) {
+		this.activePokemon = activePokemon;
 	}
 	
 	/**
@@ -64,21 +87,5 @@ public abstract class Participant {
 	 */
 	public void onPostTurn() {
 		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * Gets the active pokemon.
-	 * @return The active pokemon.
-	 */
-	public Pokemon getActivePokemon() {
-		return activePokemon;
-	}
-
-	/**
-	 * Sets the active pokemon.
-	 * @param activePokemon The active pokemon.
-	 */
-	public void setActivePokemon(Pokemon activePokemon) {
-		this.activePokemon = activePokemon;
 	}
 }

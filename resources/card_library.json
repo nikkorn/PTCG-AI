@@ -30,8 +30,10 @@
         "type": "POKEMON",
         "energyType": "water",
         "hp": 4,
-        "evolvesFrom": null,
+        "preEvolution": null,
         "power": null,
+        "resistance": {},
+        "weakness": {},
         "moves": [
             {
                 "name": "Slap",
