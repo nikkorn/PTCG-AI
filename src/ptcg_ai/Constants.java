@@ -17,6 +17,9 @@ public class Constants {
 	/** The number of duplicate cards allowed in a deck. */
 	public static int DECK_DUPLICATES_ALLOWED = 4;
 	
+	/** The default number of cards in a hand. */
+	public static int HAND_DEFAULT_SIZE = 7;
+	
 	/** The sleep in millis between coin flip animations. */
 	public static long COIN_FLIP_ANIMATION_SLEEP = 200;
 

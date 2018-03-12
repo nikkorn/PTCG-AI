@@ -27,6 +27,13 @@ public class Energy implements ICard {
 	public EnergyType getEnergyType() {
 		return this.energyType;
 	}
+	
+	/**
+	 * Gets the card name.
+	 * @return The card name.
+	 */
+	@Override
+	public String getName() { return CardType.ENERGY.toString(); }
 
 	/**
 	 * Gets the card type.
