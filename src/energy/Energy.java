@@ -33,7 +33,7 @@ public class Energy implements ICard {
 	 * @return The card name.
 	 */
 	@Override
-	public String getName() { return CardType.ENERGY.toString(); }
+	public String getName() { return energyType.toString(); }
 
 	/**
 	 * Gets the card type.
