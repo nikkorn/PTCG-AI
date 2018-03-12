@@ -22,7 +22,7 @@ public class PokemonFactory {
 		// Parse the pokemon card details from the JSON.
 		String name         = cardJSON.getString("name");
 		EnergyType type     = EnergyType.valueOf(cardJSON.getString("energyType").toUpperCase());
-		String preEvolution = cardJSON.getString("preEvolution");
+		String preEvolution = cardJSON.isNull("preEvolution") ? null : cardJSON.getString("preEvolution");
 		int hp              = cardJSON.getInt("hp");
 		
 		// Create the pokemon weakness/resistance objects and the move set.

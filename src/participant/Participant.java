@@ -2,6 +2,7 @@ package participant;
 
 import match.TurnContext;
 import match.Deck;
+import match.Hand;
 import pokemon.Pokemon;
 
 /**
@@ -20,6 +21,10 @@ public abstract class Participant {
 	 * The participants deck.
 	 */
 	private Deck deck = null;
+	/**
+	 * The participants hand.
+	 */
+	private Hand hand = null;
 	
 	/**
 	 * Creates a new instance of the Participant class.
@@ -51,6 +56,22 @@ public abstract class Participant {
 	 */
 	public void setDeck(Deck deck) {
 		this.deck = deck;
+	}
+	
+	/**
+	 * Get the participants hand.
+	 * @return The participants hand.
+	 */
+	public Hand getHand() {
+		return hand;
+	}
+
+	/**
+	 * Set the participants hand.
+	 * @param hand The participants hand.
+	 */
+	public void setHand(Hand hand) {
+		this.hand = hand;
 	}
 	
 	/**

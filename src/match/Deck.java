@@ -46,7 +46,12 @@ public class Deck extends ArrayList<ICard> {
 	 * @return The cards that were picked up.
 	 */
 	public ArrayList<ICard> pickUpCards(int amount) {
-		return null;
+		// Get the cards we will be picking up.
+		ArrayList<ICard> cards = peekAtCards(amount);
+		// Remove these cards from the deck.
+		this.removeAll(cards);
+		// Return the cards that we have picked up.
+		return cards;
 	}
 	
 	/**
@@ -63,7 +68,7 @@ public class Deck extends ArrayList<ICard> {
 	 * @return The cards that were picked up.
 	 */
 	public ArrayList<ICard> peekAtCards(int amount) {
-		return null;
+		return new ArrayList<ICard>(this.subList(0, amount));
 	}
 	
 	/**

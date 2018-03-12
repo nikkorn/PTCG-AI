@@ -1,7 +1,11 @@
 package match;
 
+import java.util.ArrayList;
 import java.util.Random;
+
+import card.ICard;
 import participant.Participant;
+import ptcg_ai.Constants;
 import ptcg_ai.GamePrinter;
 
 /**
@@ -43,16 +47,17 @@ public class Match {
 		System.out.println("Shuffling the decks...");
 		participantA.getDeck().shuffle();
 		participantB.getDeck().shuffle();
-		
-		// TODO Check for basic pokemon in top cards of both decks.
-		// TODO Set participant hands.
+		// Find initial hands for the participants, then must include at least one basic pokemon.
+		System.out.println("Drawing hands...");
+		setInitialHand(participantA);
+		setInitialHand(participantB);
 		// TODO Set participant prizes.
 		// TODO Ask participants to pick active pokemon.
 		
 		// Choose the initial participant to play.
 		this.chooseFirstParticipant();
 	}
-	
+
 	/**
 	 * Process a single turn for the active participant.
 	 */
@@ -93,6 +98,26 @@ public class Match {
 		// Write the news of the winner to the console.
 		System.out.println();
 		System.out.println(this.activeParticipant.getName() + " wins the coin toss and is going first!");
+	}
+	
+	/**
+	 * Set the initial hand of the participant.
+	 * @param participant The participant.
+	 */
+	private void setInitialHand(Participant participant) {
+		// Peek at the top cards of the participant deck that would make up their hand.
+		Hand hand = new Hand(participant.getDeck().peekAtCards(Constants.HAND_DEFAULT_SIZE));
+		// Keep creating hands for this participant until we have one with a basic pokemon.
+		while(!hand.containsBasicPokemon()) {
+			// Shuffle the deck again.
+			participant.getDeck().shuffle();
+			// Create a new hand.
+			hand = new Hand(participant.getDeck().peekAtCards(Constants.HAND_DEFAULT_SIZE));
+		}
+		// We now have a hand with at least one basic pokemon in it.
+		participant.setHand(hand);
+		// Actually pick up the cards in the hand from the deck.
+		participant.getDeck().pickUpCards(Constants.HAND_DEFAULT_SIZE);
 	}
 	
 	/**
