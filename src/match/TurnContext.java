@@ -10,9 +10,9 @@ import pokemon.Pokemon;
  */
 public class TurnContext {
 	/**
-	 * The participant taking the turn.
+	 * The participant taking the turn and their opponent.
 	 */
-	private Participant participant;
+	private Participant participant, opponent;
 	/**
 	 * Whether the participant has already attached an Energy to a pokemon this turn.
 	 */
@@ -24,10 +24,28 @@ public class TurnContext {
 	
 	/**
 	 * Creates a new instance of the TurnContext class.
-	 * @param participant The  participant taking the turn.
+	 * @param participant The participant taking the turn.
+	 * @param opponent The opponent of the participant taking the turn.
 	 */
-	public TurnContext(Participant participant) {
+	public TurnContext(Participant participant, Participant opponent) {
 		this.participant = participant;
+		this.opponent    = opponent;
+	}
+	
+	/**
+	 * Get the participant taking the turn.
+	 * @return The participant taking the turn.
+	 */
+	public Participant getParticipant() {
+		return this.participant;
+	}
+	
+	/**
+	 * Get the opponent of the participant taking the turn.
+	 * @return The opponent of the participant taking the turn.
+	 */
+	public Participant getOpponent() {
+		return this.opponent;
 	}
 	
 	/**

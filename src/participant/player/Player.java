@@ -2,6 +2,7 @@ package participant.player;
 
 import match.TurnContext;
 import participant.Participant;
+import participant.player.input.InputHandler;
 
 /**
  * Represents a player participant.

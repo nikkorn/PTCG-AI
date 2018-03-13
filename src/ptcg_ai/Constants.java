@@ -23,13 +23,21 @@ public class Constants {
 	/** The sleep in millis between coin flip animations. */
 	public static long COIN_FLIP_ANIMATION_SLEEP = 200;
 
+	/**
+	 * PRINTING.
+	 */
+	
 	/** Some ANSI codes for coloured console output. */
-	public static final String ANSI_RESET   = "\u001B[0m";
-	public static final String ANSI_BLACK   = "\u001B[30m";
-	public static final String ANSI_RED     = "\u001B[31m";
-	public static final String ANSI_GREEN   = "\u001B[32m";
-	public static final String ANSI_YELLOW  = "\u001B[33m";
-	public static final String ANSI_BLUE    = "\u001B[34m";
-	public static final String ANSI_PURPLE  = "\u001B[35m";
-	public static final String ANSI_WHITE   = "\u001B[37m";
+	public static final String PRINTING_ANSI_RESET   = "\u001B[0m";
+	public static final String PRINTING_ANSI_BLACK   = "\u001B[30m";
+	public static final String PRINTING_ANSI_RED     = "\u001B[31m";
+	public static final String PRINTING_ANSI_GREEN   = "\u001B[32m";
+	public static final String PRINTING_ANSI_YELLOW  = "\u001B[33m";
+	public static final String PRINTING_ANSI_BLUE    = "\u001B[34m";
+	public static final String PRINTING_ANSI_PURPLE  = "\u001B[35m";
+	public static final String PRINTING_ANSI_WHITE   = "\u001B[37m";
+	
+	/** Damage tokens. */
+	public static final String PRINTING_DAMAGE_TOKEN         = "\u2b1b";
+	public static final String PRINTING_DAMAGE_TOKEN_EMPTY   = "\u2b1c";
 }

@@ -1,9 +1,6 @@
 package match;
 
-import java.util.ArrayList;
 import java.util.Random;
-
-import card.ICard;
 import participant.Participant;
 import ptcg_ai.Constants;
 import ptcg_ai.GamePrinter;
@@ -51,6 +48,7 @@ public class Match {
 		System.out.println("Drawing hands...");
 		setInitialHand(participantA);
 		setInitialHand(participantB);
+		
 		// TODO Set participant prizes.
 		// TODO Ask participants to pick active pokemon.
 		
@@ -68,7 +66,8 @@ public class Match {
 		// Carry out the pre-turn stage.
 		this.activeParticipant.onPreTurn();
 		// Carry out the actual turn stage.
-		this.activeParticipant.onTurn(new TurnContext(this.activeParticipant));
+		this.activeParticipant.onTurn(new TurnContext(this.activeParticipant,
+				this.activeParticipant == participantA ? participantB : participantA));
 		// Carry out the post-turn stage.
 		this.activeParticipant.onPostTurn();
 		// Swap the active participant.

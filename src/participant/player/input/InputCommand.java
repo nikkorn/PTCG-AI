@@ -1,4 +1,4 @@
-package participant.player;
+package participant.player.input;
 
 /**
  * Enumeration of input commands.
