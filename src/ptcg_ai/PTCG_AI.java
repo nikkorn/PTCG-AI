@@ -20,14 +20,15 @@ public class PTCG_AI {
 	public static void main(String[] args) {
 		
 		// Check for the relevant arguments.
-		if (args.length != 6) {
-			System.out.println("Expected 6 arguments:");
+		if (args.length != 7) {
+			System.out.println("Expected 7 arguments:");
 			System.out.println("1. The name of the first participant.");
 			System.out.println("2. The type of the first participant (computer/player)");
 			System.out.println("3. The name of the deck that the first participant will use.");
 			System.out.println("4. The name of the second participant.");
 			System.out.println("5. The type of the second participant (computer/player)");
 			System.out.println("6. The name of the deck that the second participant will use.");
+			System.out.println("7. The number of prizes.");
 			return;
 		}
 
@@ -45,8 +46,11 @@ public class PTCG_AI {
 		firstParticipant.setDeck(DeckBuilder.createDeck(args[2]));
 		secondParticipant.setDeck(DeckBuilder.createDeck(args[5]));
 		
+		// Get the number of prizes.
+		int prizes = Integer.parseInt(args[6]);
+		
 		// Create the match.
-		Match match = new Match(firstParticipant, secondParticipant, new Random());
+		Match match = new Match(firstParticipant, secondParticipant, prizes, new Random());
 		
 		// Set up the match.
 		match.setupMatch();
@@ -89,7 +93,7 @@ public class PTCG_AI {
 		} else if (type.toLowerCase().equals("computer")) {
 			return new AI(name);
 		} else {
-			throw new RuntimeException("Expected participant type of 'player' or 'computer'. Got: " + type);
+			throw new RuntimeException("Expected participant type of 'player' or 'computer' but got: " + type);
 		}
 	}
 }

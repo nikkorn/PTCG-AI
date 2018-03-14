@@ -103,18 +103,4 @@ public class GamePrinter {
 		System.out.println("###########################################");
 		System.out.println();
 	}
-
-	/**
-	 * Print a pokemon HP bar.
-	 * @param hp
-	 *            The number of damage tokens on the pokemon.
-	 * @param total
-	 *            The total hp of the pokemon.
-	 */
-	public static void printHPBar(int tokens, int total) {
-		System.out.print("HP:");
-		for (int i = 0; i < total; i++) {
-			System.out.print(i < tokens ? Constants.PRINTING_DAMAGE_TOKEN : Constants.PRINTING_DAMAGE_TOKEN_EMPTY);
-		}
-	}
 }

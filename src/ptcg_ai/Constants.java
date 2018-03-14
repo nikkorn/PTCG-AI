@@ -38,6 +38,6 @@ public class Constants {
 	public static final String PRINTING_ANSI_WHITE   = "\u001B[37m";
 	
 	/** Damage tokens. */
-	public static final String PRINTING_DAMAGE_TOKEN         = "\u2b1b";
-	public static final String PRINTING_DAMAGE_TOKEN_EMPTY   = "\u2b1c";
+	public static final String PRINTING_DAMAGE_TOKEN         = "#";
+	public static final String PRINTING_DAMAGE_TOKEN_EMPTY   = "0";
 }

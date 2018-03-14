@@ -1,9 +1,7 @@
 package participant;
 
 import match.TurnContext;
-
 import java.util.ArrayList;
-
 import card.ICard;
 import match.Deck;
 import match.Hand;
@@ -33,6 +31,10 @@ public abstract class Participant {
 	 * The participants discard pile.
 	 */
 	private ArrayList<ICard> discarded = new ArrayList<ICard>();
+	/**
+	 * The participants remaining prizes.
+	 */
+	private ArrayList<ICard> prizes = new ArrayList<ICard>();
 	
 	/**
 	 * Creates a new instance of the Participant class.
@@ -88,6 +90,22 @@ public abstract class Participant {
 	 */
 	public ArrayList<ICard> getDiscardPile() {
 		return discarded;
+	}
+	
+	/**
+	 * Gets the remaining prizes of the participant.
+	 * @return The remaining prizes of the participant.
+	 */
+	public ArrayList<ICard> getPrizes() {
+		return prizes;
+	}
+
+	/**
+	 * Sets the remaining prizes of the participant.
+	 * @param prizes The remaining prizes of the participant.
+	 */
+	public void setPrizes(ArrayList<ICard> prizes) {
+		this.prizes = prizes;
 	}
 	
 	/**

@@ -19,6 +19,10 @@ public class Match {
 	 */
 	private Participant activeParticipant = null;
 	/**
+	 * The number of prizes to play for.
+	 */
+	private int prizes;
+	/**
 	 * The RNG to use for coin flips and deck shuffles.
 	 */
 	private Random rng;
@@ -27,11 +31,13 @@ public class Match {
 	 * Creates an instance of the Match class.
 	 * @param participantA The first participant.
 	 * @param participantB The second participant.
+	 * @param prizes The number of prizes.
 	 * @param rng The RNG to use for coin flips and deck shuffles.
 	 */
-	public Match(Participant participantA, Participant participantB, Random rng) {
+	public Match(Participant participantA, Participant participantB, int prizes, Random rng) {
 		this.participantA = participantA;
 		this.participantB = participantB;
+		this.prizes       = prizes;
 		this.rng          = rng;
 	}
 	
@@ -39,18 +45,21 @@ public class Match {
 	 * Set up the match.
 	 */
 	public void setupMatch() {
-		System.out.println("Participants: " + participantA.getName() + " and " + participantB.getName());
+		System.out.println("Participants: " + participantA.getName() + " and " + participantB.getName() + " playing for " + this.prizes + " prizes");
 		System.out.println("Setting up match...");
 		// Shuffle participant decks.
 		System.out.println("Shuffling the decks...");
 		participantA.getDeck().shuffle();
 		participantB.getDeck().shuffle();
+		// Pick the prizes for the participants.
+		System.out.println("Placing the prizes...");
+		participantA.setPrizes(participantA.getDeck().pickUpCards(this.prizes));
+		participantB.setPrizes(participantB.getDeck().pickUpCards(this.prizes));
 		// Find initial hands for the participants, then must include at least one basic pokemon.
 		System.out.println("Drawing hands...");
 		setInitialHand(participantA);
 		setInitialHand(participantB);
 		
-		// TODO Set participant prizes.
 		// TODO Ask participants to pick active pokemon.
 		
 		// Choose the initial participant to play.
