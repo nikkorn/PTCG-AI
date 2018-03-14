@@ -1,9 +1,10 @@
 package match;
 
 import java.util.Random;
+
+import output.GamePrinter;
 import participant.Participant;
 import ptcg_ai.Constants;
-import ptcg_ai.GamePrinter;
 
 /**
  * Represents a single match.

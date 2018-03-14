@@ -1,8 +1,9 @@
-package ptcg_ai;
+package output;
 
 import java.util.ArrayList;
 import card.ICard;
 import match.Coin;
+import ptcg_ai.Constants;
 
 /**
  * Prints game state to the console.
@@ -63,15 +64,41 @@ public class GamePrinter {
 
 	/**
 	 * Print hand information to the console.
-	 * @param hand
-	 *            The hand to print.
+	 * @param hand The hand to print.
 	 */
 	public static void printHand(ArrayList<ICard> hand) {
+		// Is our hand empty?
+		if (hand.isEmpty()) {
+			System.out.println("Your hand is empty.");
+			System.out.println();
+			return;
+		}
 		int cardIndex = 1;
 		System.out.println("################## HAND ###################");
 		System.out.println("###########################################");
 		for (ICard card : hand) {
-			System.out.println("# " + padString(cardIndex++ + ". " + card.getName(), 39) + " #");
+			System.out.println("# " + TextPrinter.padString(cardIndex++ + ". " + card.getName(), 39) + " #");
+		}
+		System.out.println("###########################################");
+		System.out.println();
+	}
+	
+	/**
+	 * Print discarded card information to the console.
+	 * @param discarded The discarded cards to print.
+	 */
+	public static void printDiscarded(ArrayList<ICard> discarded) {
+		// Is our discard pile empty?
+		if (discarded.isEmpty()) {
+			System.out.println("The discard pile is empty.");
+			System.out.println();
+			return;
+		}
+		int cardIndex = 1;
+		System.out.println("################ DISCARDED ################");
+		System.out.println("###########################################");
+		for (ICard card : discarded) {
+			System.out.println("# " + TextPrinter.padString(cardIndex++ + ". " + card.getName(), 39) + " #");
 		}
 		System.out.println("###########################################");
 		System.out.println();
@@ -89,21 +116,5 @@ public class GamePrinter {
 		for (int i = 0; i < total; i++) {
 			System.out.print(i < tokens ? Constants.PRINTING_DAMAGE_TOKEN : Constants.PRINTING_DAMAGE_TOKEN_EMPTY);
 		}
-	}
-
-	/**
-	 * Add whitespace padding to the end of a string.
-	 * @param value
-	 *            The string to append padding to.
-	 * @param whitespace
-	 *            The expected string width.
-	 * @return The padded string.
-	 */
-	public static String padString(String value, int whitespace) {
-		String paddedValue = value + "";
-		while (paddedValue.length() < whitespace) {
-			paddedValue += " ";
-		}
-		return paddedValue;
 	}
 }
